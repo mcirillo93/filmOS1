@@ -1,37 +1,41 @@
 // src/pages/MovieDetails.tsx
+  // (AJ) Typed API Response Here: 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
-type MovieDetails = {
-  title: string;
-  poster_path: string;
-  release_date: string;
-  overview: string;
-};
+import { MovieDetails } from '../components/types';    // (AJ) Imported MovieDetails type Here: 
 
 const MovieDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [movie, setMovie] = useState<MovieDetails | null>(null);
 
-  useEffect(() => {
-    const fetchMovie = async () => {
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
-        params: { api_key: 'daf4907c821b89c3d33d74dc38cf6bdc' },
+  const fetchMovieDetails = async (movieId: string) => {
+    try {
+      const response = await axios.get<MovieDetails>(`https://api.themoviedb.org/3/movie/${movieId}`, {
+        params: {
+          api_key: 'daf4907c821b89c3d33d74dc38cf6bdc',
+        },
       });
       setMovie(response.data);
-    };
-    fetchMovie();
-  }, [id]);
+    } catch (error) {
+      console.error('Error fetching movie details:', error);
+    }
+  };
 
-  if (!movie) return <p>Loading...</p>;
+  useEffect(() => {
+    const movieId = 'some_movie_id'; // (AJ) Replace with actual movie ID
+    fetchMovieDetails(movieId);
+  }, []);
+
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div className="movie-details">
-      <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
+    <div>
       <h1>{movie.title}</h1>
-      <p><strong>Release Date:</strong> {movie.release_date}</p>
       <p>{movie.overview}</p>
+      {/* Render other movie details as needed */}
     </div>
   );
 };
