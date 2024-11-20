@@ -4,34 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <h1>Welcome To FILM_OS!</h1>
-    <body>
-        <p> Log in:
-            <form action="login.php" method="post">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <input type="submit" value="Submit">
-                <script>
-                    document.querySelector('form').addEventListener('submit', function(event) {
-                        event.preventDefault();
-                        // Assuming login is successful
-                        window.location.href = 'profile.html';
-                    });
-                </script>
-                <p>Don't have an account? <a href="register.html">Register here!</a>
-                </p>
-            </form>
-        </p>
-        
-    </body>
-    
-    <footer>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="contact_us.html">Contact Us!</a></li>
-        </ul>
-    </footer>
-    
-    </html>
+    <title>FILM_OS</title>
+  </head>
+  <body>
+    <!--(AJ) html structure correction to load React App set up here:  -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  <footer>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact_us.html">Contact Us!</a></li>
+    </ul>
+  </footer>
+</html>
