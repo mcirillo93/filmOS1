@@ -1,8 +1,10 @@
 // src/pages/Home.tsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import MovieList from '../../client/client/src/components/movieList';
-import SearchBar from '../../client/client/src/components/searchBar';
+import SearchBar from '../components/searchBar';   // (AJ): Corrected Import Path
+import MovieList from '../components/movieList';  // (AJ): Corrected Import Path
+// import { Movie } from '../components/types';    // (AJ): Movie Types Link Imported Here: 
+
 
 const Home: React.FC = () => {
   const [movies, setMovies] = useState([]);
