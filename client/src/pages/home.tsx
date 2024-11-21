@@ -28,7 +28,7 @@ const Home: React.FC = () => {
       <SearchBar onSearch={fetchMovies} />
       <MovieList movies={movies} />
     </div>
-  );
+  )
 };
 
 export default Home;
