@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "@types/pg": "^8.11.10",
     "typescript": "^5.4.5"
   }
 }
