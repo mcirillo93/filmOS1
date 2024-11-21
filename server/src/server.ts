@@ -1,22 +1,22 @@
 import express from 'express';
 
-import { Router } from 'express';
+//import { Router } from 'express';
 
 
 
-const router = Router();
+//const router = Router();
 
 
 
-router.get('/movies', (_, res) => {
+//router.get('/movies', (_, res) => {
 
-  res.send('List of movies');
+  //res.send('List of movies');
 
-});
+//});
 
 
 
-export { router as routes };
+//export { router as routes };
 
 // import { Router } from 'express';
 
@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.static('../client/dist'));
 
 app.use(express.json());
-app.use(router);
+//app.use(router);
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
