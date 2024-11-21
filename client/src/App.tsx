@@ -1,18 +1,15 @@
-// // src/App.tsx
+// src/App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/login';      // (AJ) Updated Routes here: 
-import Register from './pages/register';  // (AJ) Updated Routes here: 
-
+import Home from './pages/home';
+import MovieDetails from './pages/movieDetails';
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
       </Routes>
     </Router>
   );

@@ -1,31 +1,20 @@
-// // src/pages/Home.tsx
-
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';      // (AJ): REACT Link Imported Here: 
+// src/pages/Home.tsx
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import SearchBar from '../components/SearchBar';   // (AJ): Corrected Import Path
-import MovieList from '../components/MovieList';  // (AJ): Corrected Import Path
-import { Movie } from '../components/types';    // (AJ): Movie Types Link Imported Here: 
-
+import MovieList from '../../client/client/src/components/movieList';
+import SearchBar from '../../client/client/src/components/searchBar';
 
 const Home: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState([]);
 
   const fetchMovies = async (query = '') => {
-    try {
-      const response = await axios.get<{ results: Movie[] }>(
-        `https://api.themoviedb.org/3/search/movie`,
-        {
-          params: {
-            api_key: 'daf4907c821b89c3d33d74dc38cf6bdc',
-            query,
-          },
-        }
-      );
-      setMovies(response.data.results);
-    } catch (error) {
-      console.error('Error fetching movies:', error);
-    }
+    const response = await axios.get(`https://api.themoviedb.org/3/search/movie`, {
+      params: {
+        api_key: 'daf4907c821b89c3d33d74dc38cf6bdc',
+        query,
+      },
+    });
+    setMovies(response.data.results);
   };
 
   useEffect(() => {
@@ -33,17 +22,9 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to FILM_OS!</h1>
-      <p>
-        Log in:
-        <Link to="/login">Login</Link>
-      </p>
-      <p>Don't have an account? <Link to="/register">Register here!</Link></p>
-      <div className="home-page">
-        <SearchBar onSearch={fetchMovies} />
-        <MovieList movies={movies} />
-      </div>
+    <div className="home-page">
+      <SearchBar onSearch={fetchMovies} />
+      <MovieList movies={movies} />
     </div>
   );
 };
