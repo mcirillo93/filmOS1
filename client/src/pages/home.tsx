@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';      // (AJ): REACT Link Imported Here: 
 import axios from 'axios';
-import SearchBar from '../components/SearchBar';   // (AJ): Corrected Import Path
-import MovieList from '../components/MovieList';  // (AJ): Corrected Import Path
+import SearchBar from '../components/searchBar';   // (AJ): Corrected Import Path
+import MovieList from '../components/movieList';  // (AJ): Corrected Import Path
 import { Movie } from '../components/types';    // (AJ): Movie Types Link Imported Here: 
 
 

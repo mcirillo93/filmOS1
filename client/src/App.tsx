@@ -1,12 +1,12 @@
 // // src/App.tsx
-import React from 'react';
+import  { FC } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import Home from './pages/home';
 import Login from './pages/login';      // (AJ) Updated Routes here: 
 import Register from './pages/register';  // (AJ) Updated Routes here: 
 
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <Router>
       <Routes>

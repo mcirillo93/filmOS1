@@ -1,17 +1,17 @@
 // src/pages/MovieDetails.tsx
   // (AJ) Typed API Response Here: 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { MovieDetails } from '../components/types';    // (AJ) Imported MovieDetails type Here: 
+import { MovieDetailsInterface } from '../components/types';    // (AJ) Imported MovieDetails type Here: 
 
 const MovieDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [movie, setMovie] = useState<MovieDetails | null>(null);
+  //const { id } = useParams<{ id: string }>();
+  const [movie, setMovie] = useState<MovieDetailsInterface | null>(null);
 
   const fetchMovieDetails = async (movieId: string) => {
     try {
-      const response = await axios.get<MovieDetails>(`https://api.themoviedb.org/3/movie/${movieId}`, {
+      const response = await axios.get<MovieDetailsInterface>(`https://api.themoviedb.org/3/movie/${movieId}`, {
         params: {
           api_key: 'daf4907c821b89c3d33d74dc38cf6bdc',
         },

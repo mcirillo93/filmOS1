@@ -8,7 +8,7 @@ export interface Movie {
   }
 
 
-  export interface MovieDetails {
+  export interface MovieDetailsInterface {
     id: number;
     title: string;
     overview: string;
